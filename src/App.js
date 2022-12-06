@@ -91,10 +91,10 @@ function App() {
     setWithDrawError('');
      try {
         const fcContractWithSigner = fcContract.connect(signer);
-        const resp = fcContractWithSigner.requestTokens();
+        const resp = await fcContractWithSigner.requestTokens();
         setWithDrawSuccess('Request successful. Enjoy your tokens');
-        setTransactionData(resp.transactionHash)
-        console.log(resp);
+        setTransactionData(resp.hash)
+        console.log(resp.hash);
      } catch (error) {
        console.error(error.messge);
        setWithDrawError(error.message);
@@ -159,7 +159,9 @@ function App() {
                   />
                 </div>
                 <div className="column">
-                  <button className="button is-link is-medium" onClick={getRITHandler}>
+                  <button
+                  disabled={walletAddress ? false : true} 
+                  className="button is-link is-medium" onClick={getRITHandler}>
                     GET TOKENS
                   </button>
                 </div>
