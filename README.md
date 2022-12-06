@@ -1,3 +1,2 @@
-# Starter code for Faucet dApp tutorial
+# ERC20 token faucet
 
-Boilerplate code consisting of a new create-react-app project and some basic HTML and CSS.
